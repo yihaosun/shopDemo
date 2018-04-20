@@ -1,0 +1,97 @@
+@CHARSET "UTF-8";
+
+.hidden {
+	display: none;
+}
+
+.diaLogMask {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: gray;
+	opacity: 0.6;
+	filter: alpha(opacity = 60);
+	z-index: 998;
+}
+
+.diaLog { /* border: 1px solid black; */
+	position: absolute;
+	top: 41%;
+	left: 50%;
+	z-index: 1000;
+	background-color: white;
+	transform: scale(.6, .6);
+}
+
+.closeBar {
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	position: absolute;
+	top: 12px;
+	font-size: 25px;
+	/* left: 890px; */
+	border-radius: 50%;
+	right: 13px;
+	cursor: pointer;
+	color: white;
+}
+
+.textBar {
+	width: 100%;
+	height: 53px;
+	/* text-align: center; */
+	line-height: 53px;
+	font-size: 20px;
+	padding-left: 33px;
+	color: white;
+	background-color: #c94248;
+}
+
+iframe {
+	width: 100%;
+}
+
+.closeBar:active {
+	background-color: #a7a7a7;
+	color: white;
+}
+
+.content {
+	height: 187px;
+}
+
+.container i {
+	padding: 29px 0px 15px 16px;
+	font-size: 29px;
+}
+
+.contextText {
+	display: inline-block;
+	padding-left: 38px;
+	/* padding-top: 26px; */
+	/* margin-top: 10px; */
+	position: relative;
+	top: -3px;
+}
+
+.btnBar  button {
+	width: 59px;
+	height: 28px;
+	outline: none;
+	border: 1px solid #d72028;
+	background-color: #dd494f;
+	color: white;
+}
+
+.btnBar {
+	margin-top: 19px;
+	margin-left: 88px;
+}
+
+#bthNo {
+	margin-left: 54px;
+}

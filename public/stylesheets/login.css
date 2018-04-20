@@ -1,0 +1,66 @@
+#login {
+	width: 22.375em;
+	margin: 0 60%;
+	position: relative;
+	top: 56%;
+	margin-top: -16.3em;
+	padding: 0 1.5em;
+	background-color: #fff;
+}
+
+input[type='text'],input[type='password'] {
+	font-size: 1em;
+	width: 100%;
+	margin: 0 0 .8em 0;
+	height: 2.315em;
+}
+
+#txtCodeLine {
+	width: 14.8em;
+	position: relative;
+	margin-top: 0.3em;
+}
+
+#pic {
+	position: absolute;
+	right: 1.5em;
+	top: 10.159em;
+}
+
+#btnLogin {
+	width: 310.01px;
+	height: 2.3em;
+}
+
+.errTips {
+	position: relative;
+	float: right;
+	color: #f40;
+	font-size: .875em;
+	margin: -2.9em -0.9em 0 0;
+	opacity: 0;
+	transition: all 250ms;
+	/
+	*IE8閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷�
+	/
+}
+
+.showErrorTips {
+	opacity: 1;
+	margin: -2.9em 0.2em 0 0;
+}
+
+.row {
+	position: relative;
+}
+
+.placeholder {
+	position: absolute;
+	top: .5em;
+	left: .8em;
+	color: gray;
+	display: none;
+	/
+	*閿熸枻鎷烽敓鍙鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓锟�
+	/
+}

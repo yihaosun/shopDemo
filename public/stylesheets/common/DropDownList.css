@@ -1,0 +1,68 @@
+.ddl {
+	border: .125em solid #d0d0d0;
+	position: relative;
+	color: #333;
+	cursor: pointer;
+	background-color: white;
+	user-select: none;
+	box-sizing: content-box;
+}
+
+.ddlTxt {
+	padding: .3em 2em .3em 1em;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.ddlArrow {
+	border-top: .4em solid #9c9c9c;
+	border-right: .4em solid #ffffff;
+	border-left: .4em solid #ffffff;
+	width: 0;
+	height: 0;
+	position: absolute;
+	right: .8em;
+	top: .9em;
+}
+
+.ddlList {
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	border: .125em solid #d0d0d0;
+	width: 100%;
+	left: -.125em;
+	box-shadow: 0 1px 5px rgba(0, 0, 0, .2);
+	max-height: 20em;
+	overflow-y: auto;
+	box-sizing: content-box;
+	transition: all 250ms;
+	opacity: 0;
+	z-index: 10;
+}
+
+.ddlItem {
+	padding: .3em 0.3em .3em 0.6em;
+	background-color: white;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	width: 100%;
+	overflow: hidden;
+	box-sizing: border-box;
+	transition: background-color 250ms;
+}
+
+.ddlItem:hover {
+	background-color: #e2e2e2;
+}
+
+.hidden {
+	display: none;
+}
+
+/
+* 閫変腑椤�/
+.ddlItemSelected {
+	background-color: #4da7fd !important;
+	color: white !important;
+}

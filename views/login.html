@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>登陆页面</title>
+    <link rel="stylesheet" href="stylesheets/common/common.css">
+    <link rel="stylesheet" href="stylesheets/login.css">
+    <script src="javascripts/common/jquery-1.12.0.js"></script>
+    <script src="javascripts/login.js"></script>
+    <script src="javascripts/common/util.js"></script>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
+        #box {
+            height: 5.625em;
+            margin-top: 0.625em;
+            margin-left: 30em;
+            background: url(images/header1.jpg) no-repeat left bottom;
+        }
+
+        #content {
+            width: 100%;
+            height: 36.75em;
+            border: 0.0625em solid black;
+            margin-top: 1.25em;
+            background: url(images/content.jpg) no-repeat bottom;
+        }
+
+        #span1,#span2 {
+            display: block;
+            width: 100%;
+            height: 3em;
+            /* margin-left: -1.4375em; */
+            /* margin-top: 0.625em; */
+            text-align: center;
+            line-height: 3em;
+            cursor: pointer;
+            font-family: "微软雅黑";
+        }
+
+        span {
+            display: inline-block;
+            width: 9.375em;
+            height: 3.1875em;
+            /* margin-left: -1.4375em; */
+            margin-top: 0.625em;
+            text-align: center;
+            line-height: 3.1875em;
+            cursor: pointer;
+            font-family: "微软雅黑";
+        }
+
+        #span1 {
+            /* border: 0.0625em solid white; */
+            color: black;
+        }
+
+        #wrap_span {
+            width: 310px;
+            height: 3em;
+            /* margin-left: 3em; */
+            font-size: 1.2em;
+        }
+
+        #bottom {
+            margin-top: 1em;
+        }
+
+        #bottom1:after {
+            clear: both;
+            content: '';
+            display: block;
+            width: 0;
+            height: 0;
+            visibility: hidden;
+        }
+        .erroBorder{
+            border:.125em solid red!important;
+        }
+        #bottom1>ul:after {
+            clear: both;
+            content: '';
+            display: block;
+            width: 0;
+            height: 0;
+            visibility: hidden;
+        }
+
+        ul {
+
+            padding: 2em 12px;
+        }
+
+        ul li {
+            list-style: none;
+            float: left;
+            margin-left: 1.7em;
+            width: 2.4em;
+            height: 2em;
+            border: 1px solid black;
+            border-radius: 50%;
+            background-color: gainsboro;
+            cursor: pointer;
+        }
+
+        ul li img {
+            display: inline-block;
+            width: 1.5em;
+            height: 1.5em;
+            margin-left: 0.3em;
+            margin-top: 0.2em;
+        }
+
+        }
+        #bottom2 {
+            margin-left: 40em;
+            margin-top: 4.375em;
+        }
+
+        #bottom2 { /* width: 51.9em; */
+            height: 5.2em;
+            /* margin: 0 auto; */
+            margin-top: 8.5em;
+            position: relative;
+        }
+
+        #wrap_span1 {
+            font-size: 0.8em;
+            width: 493px;
+            margin: 0 auto;
+            /* margin-left: 19.9em; */
+            color: gray;
+        }
+        #link{
+            margin-top:10px;
+        }
+        #leader {
+            width: 51em;
+        height: 3em;
+            /* margin-left: -11em; */
+            text-align: center;
+            line-height: 3em;
+            font-size: 0.8em;
+            color: gray;
+            margin: 0 auto;
+            /* margin-left: 10.1em; */
+        }
+
+        a {
+            color: gray;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        a:hover {
+            color: orange;
+            text-decoration: underline;
+        }
+
+        #txtCode {
+            width: 11.3em;
+        }
+
+        #errTips {
+            left:-4em;
+        }
+
+
+    </style>
+
+
+</head>
+<body>
+<div id="box"></div>
+<div id="content">
+    <div id="login">
+        <div id="wrap_span">
+            <span id="span1">账号登录</span>
+        </div>
+        <div class="row">
+            <input type="text" id="txtName" placeholder="请输入邮箱"
+                   maxlength="20" autocomplete="off" />
+            <div class="errTips"></div>
+            <div class="placeholder" id="placeholder1">请输入邮箱</div>
+        </div>
+        <div class="row">
+            <input type="password" id="txtPassword"
+                   placeholder="请输入密码" maxlength="20"
+                   autocomplete="off" />
+            <div class="errTips"></div>
+            <div class="placeholder" id="placeholder2">请输入密码</div>
+        </div>
+        <div id="txtCodeLine">
+            <input type="text" id="txtCode" placeholder="请输入验证码"
+                   maxlength="6" />
+            <div class="errTips" id="errTips"></div>
+            <div class="placeholder" id="placeholder3">请输入验证码</div>
+        </div>
+        <img src="/getCertPic" basePath="/getCertPic" alt="验证码"
+             id="pic" title="点击刷新"  style="width: 105px;height:2.315em;"/> <div id="btnLogin"
+    >登录</div>
+        <div id="link">
+            <a href="/register">立即注册</a> <a href="#">忘记密码</a>
+        </div>
+        <div id="bottom">
+            <img src="images/jietu.png">
+        </div>
+        <div id="bottom1">
+            <ul>
+                <li><img src="images/pay.png">
+                </li>
+                <li><img src="images/QQ.png">
+                </li>
+                <li><img src="images/weibo.png">
+                </li>
+                <li><img src="images/weixin.png">
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div id="bottom2">
+    <div id="wrap_span1">
+        <span>简体</span> <span>繁体</span> <span>English</span> <span>常见问题</span>
+    </div>
+    <div id="leader">一号公司版权所有-京ICP备10046444-京公网安备11010802020134号-京ICP证110507号</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,87 @@
+/*表格外层边框*/
+.grid {
+	width: 100%;
+	border-left: 0.0625em solid #e0e0e0;
+	border-top: 0.125em solid #eeeeee;
+}
+/*表头背景色*/
+.grid>thead>tr>th {
+	background-color: #eeeeee;
+	color: #333;
+}
+
+/*表格行鼠标悬停*/
+.grid>tbody>tr:hover {
+	background-color: #f3f3f3;
+}
+
+/*表格单元格*/
+.gridCell {
+	border-right: 0.0625em solid #e0e0e0;
+	border-bottom: 0.0625em solid #e0e0e0;
+	padding: .4em 1em;
+	position:relative;
+}
+
+/*表格行选中*/
+.gridSelected {
+	background-color: #e6e5e5 !important;
+}
+
+/*单元格内部元素靠右对齐*/
+.alignright {
+	text-align: right;
+}
+
+/*单元格内部元素居中对齐*/
+.aligncenter {
+	text-align: center;
+}
+
+/*分页*/
+.pager {
+	border: 0.0625em solid #e0e0e0;
+	border-top-width: 0;
+	padding: .3em .5em;
+	color: #464646;
+}
+
+/*分页栏布局用表格*/
+.pagerLine {
+	width: 100%;
+	font-size: 0.9em;
+}
+
+/*分页栏按钮*/
+.pagerBtn {
+	padding: 0 .5em .1em .5em !important;
+	border: .1em solid white;
+	/* background-color: #df2c2c; */
+	background-color: #eeeeee;
+}
+/*鼠标悬停在文本框、按钮、下拉列表等*/
+input[type="button"]:hover{
+	border: .1em solid #828181 !important;
+	cursor:pointer;
+}
+/*表格底部下拉列表*/
+.ddlPageSize {
+	width: 5em;
+	border: 0.0625em solid #bdbdbd;
+}
+
+/*下拉列表弹出部分的边框*/
+.ddlPageSize .ddlList {
+	border: 0.0625em solid #bdbdbd;
+	left: -0.0694em;
+}
+
+/*降低下拉列表显示文字的高度*/
+.ddlPageSize .ddlTxt {
+	padding: .1em 1.5em .1em .5em;
+}
+
+/*调整小箭头位置*/
+.ddlPageSize .ddlArrow {
+	top: .6em;
+}

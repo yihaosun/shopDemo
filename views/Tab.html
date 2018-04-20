@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>商品详情页</title>
+    <link rel="stylesheet" href="stylesheets/common/font-awesome.css">
+    <link rel="stylesheet" href="stylesheets/Tabs.css">
+    <link rel="stylesheet" href="stylesheets/buyPage.css">
+    <link rel="stylesheet" href="stylesheets/Rate.css">
+    <link rel="stylesheet" href="stylesheets/buyShopResult.css">
+    <link rel="stylesheet" href="stylesheets/common/DropDownList.css">
+    <script src="javascripts/common/jquery-1.12.0.js"></script>
+    <script src="javascripts/common/util.js"></script>
+    <script src="javascripts/goodsDetail.js"></script>
+    <script src="javascripts/shopBuy.js"></script>
+    <script src="javascripts/TabsJQuery.js"></script>
+    <script src="javascripts/Rate.js"></script>
+    <script src="javascripts/common/DropDownList.js"></script>
+
+    <style>
+        .contentWrap {
+            height: 500px;
+            width: 500px;
+        }
+
+        .contItem {
+            height: 500px;
+            width: 500px;
+            border: 1px solid #000;
+        }
+
+        .contItemActive {
+            display: block;
+        }
+
+        .pager {
+            height: 2.1em;
+            margin: 0 auto;
+            margin-top: 0em;
+            background-color: #e7e7e7;
+        }
+
+        .pager_ul {
+            margin-left: 16em;
+        }
+
+        .pager_ul li {
+            float: left;
+            width: 6em;
+            height: 2em;
+            list-style: none;
+            text-align: center;
+            line-height: 2em;
+            margin-left: .6em;
+            cursor: pointer;
+            color: #8ab08a;
+        }
+
+        .number:hover {
+            background-color: orange;
+        }
+
+        .lastLi {
+            width: 4em;
+            margin-left: -1em;
+        }
+
+        .lastLi1 {
+            width: 4em;
+            position: relative;
+            left: 6.1em;
+        }
+
+        .lastLi2 {
+            width: 8.8em;
+            margin-left: -2.8em;
+            position: relative;
+            left: -16.4em;
+        }
+
+
+        .lastLi2 input {
+            width: 1.8em;
+        }
+
+        .nowPage1 {
+            position: relative;
+            left: 29.1em;
+        }
+
+        .lastLi,.allPage1 {
+            position: relative;
+            left: 22.4em;
+        }
+
+        .allPage1 {
+            position: relative;
+            left: 27.1em;
+        }
+
+        .lastL3,.lastLi4 {
+            border: 1px solid white;
+        }
+
+        .allPage,.allPage1,.allPage2 {
+            margin-left: 0em;
+        }
+
+        .nowPage,.nowPage1,.nowPage2 {
+            margin-left: -0em;
+            border: 1px solid #8ab08a;
+        }
+
+        .backLi {
+            position: relative;
+            left: 30.9em;
+        }
+
+        .ddlPageSize {
+            width: 5.4em;
+            height: 1.8em;
+            position: relative;
+        }
+
+        .ddlTxt {
+            padding: 0em 2em .3em 1em;
+        }
+        .site_fotter {
+            width: 1226px;
+            height: 272px;
+            margin-right: auto;
+            margin-left: auto;
+            /*margin-top: 700px;*/
+        }
+
+        #service1 {
+            border: 1px solid white;
+        }
+
+        .fotter_service {
+            padding: 27px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .list_service {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            height: 25px;
+        }
+
+        .list_service li {
+            float: left;
+            width: 19.8%;
+            height: 25px;
+            border-left: 1px solid #e0e0e0;
+            font-size: 16px;
+            line-height: 25px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .list_service li a {
+            color: #616161;
+            -webkit-transition: color .2s;
+            transition: color .2s;
+        }
+
+        .iconfont {
+            margin-right: 6px;
+            font-size: 24px;
+            line-height: 24px;
+            vertical-align: -4px;
+            font-style: normal;
+            -webkit-font-smoothing: antialiased;
+            -webkit-text-stroke-width: 0.2px;
+        }
+
+        .list_service li a:hover {
+            color: orange;
+        }
+
+        .fotter_link {
+            width: 1226px;
+            height: 192px;
+            margin-top: 45px;
+        }
+
+        .col_links {
+            float: left;
+            width: 160px;
+            height: 112px;
+            margin: 0;
+        }
+
+        .col_links dt {
+            margin: -1px 0 26px;
+            font-size: 14px;
+            line-height: 1.25;
+            color: #424242;
+        }
+
+        .col_links_dd {
+            margin: 10px 0 0;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        .col_links_dd:hover {
+            color: orange;
+        }
+
+        .col_contact {
+            float: right;
+            width: 251px;
+            height: 112px;
+            border-left: 1px solid #e0e0e0;
+            text-align: center;
+            color: #616161;
+        }
+
+        .phone {
+            margin: 0 0 5px;
+            font-size: 22px;
+            line-height: 1;
+            color: #ff6700;
+        }
+
+        .contact_word {
+            margin: 0 0 16px;
+            font-size: 12px;
+        }
+
+        .message {
+            border: 1px solid #ff6700;
+            background: #fff;
+            color: #ff6700;
+            width: 118px;
+            height: 28px;
+            font-size: 12px;
+            line-height: 28px
+        }
+
+        .site_info {
+            width: 1226px;
+            margin-right: auto;
+            margin-left: auto;
+            border: 1px solid black;
+            float: left;
+            height: 57px;
+        }
+
+        .logo_ir {
+            float: left;
+            width: 57px;
+            height: 57px;
+            margin-right: 10px;
+        }
+
+        .info_text {
+            float: left;
+            color: #b0b0b0;
+        }
+        .info:hover {
+            color: #F60;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="top_bar">
+    <div class="container">
+        <div class="topbar_nav">
+            <a>一号商城</a> <span class="sep">|</span> <a>YIHAO</a> <span
+                class="sep">|</span> <a>聊天</a> <span class="sep">|</span> <a>游戏</a>
+            <span class="sep">|</span> <a>多看阅读</a> <span class="sep">|</span> <a>云服务</a>
+            <span class="sep">|</span> <a>金融</a> <span class="sep">|</span> <a>金币</a>
+            <span class="sep">|</span> <a>商城手机版</a> <span class="sep">|</span> <a>问题反馈</a>
+            <span class="sep">|</span> <a>联系</a> <span class="sep">|</span>
+        </div>
+        <div class="top_cart">
+            <a  class="cart_mini"><i class="fa fa-shopping-cart" aria-hidden="true"></i>     购物车(<span class="numResult">0</span>)</a>
+            <div class="cart_menu">
+                <div class="loading"></div>
+            </div>
+        </div>
+        <div class="top_info">
+            <span class="userId"></span>
+            <span class="info_span"  href="#"></span>
+            <a class="info" link href="/login">登录</a> <a class="info" link
+                                                         href="jsp/register.jsp">注册</a> <a class="info">消息通知</a>
+        </div>
+    </div>
+</div>
+<div class="pro_header">
+    <div class="nav_bar">
+        <div class="nav_content">
+            <!-- <h2 class="nav_content_name">小米NOTE3</h2> -->
+            <div class="nav_right">
+                <a>概述</a> <span class="spearator">|</span> <a>图集</a> <span
+                    class="spearator">|</span> <a>参数</a> <span class="spearator">|</span>
+                <a>一站式</a> <span class="spearator">|</span> <a>用户评价</a> <span
+                    class="spearator"></span>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 未登录提示 -->
+<div class="notic">
+    <div class="containter">
+        为方便您购买，请提前登录
+        <a href="/login">立即登录</a>
+        <span class="containter_close"><i class="fa fa-times" aria-hidden="true"></i></span>
+    </div>
+</div>
+<div class="pro_content">
+    <div class="pro_content_img">
+
+    </div>
+    <div class="pro_info">
+        <h1 class="pro_info_title"></h1>
+        <P class="sale_desc"></P>
+        <!--<span class="pro_info_price"></span>-->
+        <div class="flow_wrap">
+            <div class="flow_wrap_price">
+                <img height="16" src="images/piao.png" >
+                <span style="position: relative;top: 9px;font-size: 13px;">  一号商城全实物专用</span>
+                <a >去刮券</a>
+            </div>
+            <div class="tm-promo-panel">
+                <span  class="tb-metatit">价格</span>
+                <em class="tm-yen">¥</em>
+                <span class="tm-price"></span>
+                <em class="tm-promo-type ">
+                    <s></s>
+                    超市推荐
+                </em>
+            </div>
+            <!--<ul>-->
+                <!--<li class="flow_wrap_li"><span class="flow_tag">赠品</span> <span-->
+                        <!--class="flow_name">限量送贴膜</span></li>-->
+                <!--<li class="flow_wrap_li"><span class="flow_tag">赠品</span> <span-->
+                        <!--class="flow_name">限量送硅胶保护套</span></li>-->
+                <!--<li class="flow_wrap_li"><span class="flow_tag">赠品</span> <span-->
+                        <!--class="flow_name">无限流量米粉卡 含100元话费</span></li>-->
+                <!--<li class="flow_wrap_li"><span class="flow_tag">赠品</span> <span-->
+                        <!--class="flow_name">限量送圈铁耳机</span></li>-->
+            <!--</ul>-->
+        </div>
+        <div class="user_address">
+            <span  class="tb-metatit">运费</span>
+            <span class="tb-deliveryAdd">从浙江绍兴发货</span>
+            <span class="tb-deliveryAdd">满88(20Kg内)包邮</span>
+            <p>当日达 11:00前付款，承诺4月15日送达, 可选送货时间</p>
+        </div>
+        <div class="tm-ind-panel">
+            <span class="tm-label">月销售</span>
+            <span class="tm-count"></span>
+            <span class="tm-suggest">累计评价</span>
+            <span class="tm-count1"></span>
+            <span class="tm-suggest">送一号积分</span>
+            <span class="tm-count2">1</span>
+        </div>
+
+        <div class="tb-sku">
+            <span class="tb-metatit">数量</span>
+            <span class="mui-amount-wrap">
+                <input type="text" class="mui-amount-input" value="1" maxlength="2" title="请输入购买量">
+            </span>
+            <span class="mui-amount-unit">件</span>
+            <span class="tb-hidden">库存70件</span>
+        </div>
+        <div class="buyNow">
+            加入购物车
+        </div>
+        <div class="details">
+            <i class="fa fa-check-circle" aria-hidden="true"></i>
+            <span>支持七天无理由退货</span>
+        </div>
+        <div class="user_address">
+            <span  class="tb-metatit">配送范围</span>
+            <span class="tb-deliveryAdd" style="color:#865">送货范围仅限舟山、嘉兴、台州、衢州、温州、宁波、金华、绍兴、杭州、丽水、湖州地区(生鲜类别仅限部分地区)</span>
+        </div>
+    </div>
+</div>
+<div id="myTab" class="tab clearfloat">
+</div>
+<div class="goodsDetais">
+</div>
+<div id="rate"></div>
+<div class="service">
+    <div class="service-list">
+        <dl class="zpbz">
+            <dt>
+            <s class="zpbz_s"></s>
+            <span class="zpbz_span">正品保障</span>
+            </dt>
+            <dd>一号超市出售均为正品，承诺提供“正品保障”服务。</dd>
+        </dl>
+        <dl class="zpbz">
+            <dt>
+                <s class="zpbz_s" style=" background-position: -36px 0;" ></s>
+                <span class="zpbz_span">提供发票</span>
+            </dt>
+            <dd>对于在一号超市购货的买家均提供商品发票</dd>
+        </dl>
+        <dl class="zpbz">
+            <dt>
+                <s class="zpbz_s"  ></s>
+                <span class="zpbz_span"> 7天退货</span>
+            </dt>
+            <dd>对于在一号超市购物的买家提供“7天无理由退货”保障服务</dd>
+        </dl>
+    </div>
+    <div class="service-detail">
+        <h5  class="gwcr" style="margin-top:20px;background-position: 50% -28px;"></h5>
+        <ul style="  margin: 0 0 0 40px;">
+            <li>1、一号超市所有在售商品均可开具正规发票</li>
+            <li>2、一号超市所有在售商品均保障正品</li>
+        </ul>
+    </div>
+    <div class="service-detail">
+        <h5  class="gwcr" style="margin-top:20px;background-position: 50% -60px;"></h5>
+        <p style="margin-left: 270px;">
+            <img src="images/tuihuo.jpg">
+        </p>
+        <h5  class="gwcr" style="margin-top:20px;background-position: 50% -96px;"></h5>
+        <p style="margin-left: 270px;">
+        </p>
+        <p class="aheader">支持“7天无理由退货”服务：</p>
+        <ul>
+            <li style="list-style-type:disc;">一号超市出售的商品可以享受“7天无理由退货”服务，除官方规定不支持7天无理由退换服务的类目商品外；</li>
+            <li style="list-style-type:disc;">退货商品请保证是未使用过，不影响二次销售（质量问题的商品除外）；</li>
+            <li style="list-style-type:disc;">退货提交有效期：在确认签收商品之日起7天内提交（以物流签收时间为准）。</li>
+
+        </ul>
+        <p class="aheader">退货费用说明：</p>
+        <ul>
+        <li style="list-style-type:disc;">如果是买家原因退货，由买家承担退货费用。</li>
+        <li style="list-style-type:disc;">如果是商品质量问题而导致的退货，退货费用由天猫超市承担。</li>
+        </ul>
+        <p class="aheader">退货提交方式</p>
+        <ul>
+            <li style="list-style-type:disc;">在线申请：进入“我的订单”—“已买到的宝贝”，选中该笔交易，点击“退款/退货”，提交退货申请；</li>
+            <li style="list-style-type:disc;">电话申请：拨打电话400-988-8898。</li>
+        </ul>
+    </div>
+</div>
+<div class="site_fotter_wrap">
+    <div class="site_fotter">
+        <div class="fotter_service">
+            <ul class="list_service">
+                <li id="service1"><a> <i
+                        class="fa fa-volume-control-phone" aria-hidden="true"
+                        class="iconfont"></i> 预约维修服务 </a>
+                </li>
+                <li><a> <i class="fa fa-volume-control-phone"
+                           aria-hidden="true" class="iconfont"></i> 七天无理由退货 </a>
+                </li>
+                <li><a> <i class="fa fa-volume-control-phone"
+                           aria-hidden="true" class="iconfont"></i> 15天免费换货 </a>
+                </li>
+                <li><a> <i class="fa fa-gift" aria-hidden="true"
+                           class="iconfont"></i> 满150元包邮 </a>
+                </li>
+                <li><a> <i class="fa fa-map-marker" aria-hidden="true"></i>
+                    520余家售后网点 </a>
+                </li>
+            </ul>
+        </div>
+        <div class="fotter_link">
+            <dl class="col_links">
+                <dt>帮助中心</dt>
+                <dd class="col_links_dd">
+                    <a>账户管理</a>
+                </dd>
+                <dd class="col_links_dd">
+                    <a>购物指南</a>
+                </dd>
+                <dd class="col_links_dd">
+                    <a>订单操作</a>
+                </dd>
+            </dl>
+            <dl class="col_links">
+                <dt>服务支持</dt>
+                <dd class="col_links_dd">
+                    <a>售后政策</a>
+                </dd>
+                <dd class="col_links_dd">
+                    <a>自助服务</a>
+                </dd>
+                <dd class="col_links_dd">
+                    <a>相关下载</a>
+                </dd>
+            </dl>
+            <dl class="col_links">
+                <dt>线下门店</dt>
+                <dd class="col_links_dd">
+                    <a>账户管理</a>
+                </dd>
+                <dd class="col_links_dd">
+                    <a>购物指南</a>
+                </dd>
+                <dd class="col_links_dd">
+                    <a>订单操作</a>
+                </dd>
+            </dl>
+            <dl class="col_links">
+                <dt>关注我们</dt>
+                <dd class="col_links_dd">
+                    <a>账户管理</a>
+                </dd>
+                <dd class="col_links_dd">
+                    <a>购物指南</a>
+                </dd>
+                <dd class="col_links_dd">
+                    <a>订单操作</a>
+                </dd>
+            </dl>
+            <dl class="col_links">
+                <dt>帮助中心</dt>
+                <dd class="col_links_dd">
+                    <a>账户管理</a>
+                </dd>
+                <dd class="col_links_dd">
+                    <a>购物指南</a>
+                </dd>
+                <dd class="col_links_dd">
+                    <a>订单操作</a>
+                </dd>
+            </dl>
+            <dl class="col_links">
+                <dt>特色服务</dt>
+                <dd class="col_links_dd">
+                    <a>账户管理</a>
+                </dd>
+                <dd class="col_links_dd">
+                    <a>购物指南</a>
+                </dd>
+                <dd class="col_links_dd">
+                    <a>订单操作</a>
+                </dd>
+            </dl>
+            <div class="col_contact">
+                <p class="phone">182-6759-9709</p>
+                <p class="contact_word">
+                    周一至周日 8：10-10：00 <br> (仅收取市区费用)
+                </p>
+                <a class="message"> <i class="fa fa-wechat" aria-hidden="true"></i>
+                    24小时在线服务 </a>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+<script>
+    $(function(){
+        var url = window.location.search;
+        var loc = url.substring(url.indexOf('=')+1, url.indexOf('&'));
+        var loc1 = url.substring(url.lastIndexOf('=')+1, url.length);
+        $(".containter").animate({
+            marginTop:"0px"
+        },1000);
+$(".containter_close").click(function(){
+    $(".containter").animate({
+        marginTop:"-50px"
+    },1000);
+});
+        new goodsDetail({
+            renderTo : "nav_content",
+            renderTo1 : "pro_info",
+            dataSource : "/getGoodsById",
+        });
+    });
+    var urlMapping = {
+        key : "id",
+        value : "name"
+    };
+    var mappingnull = null;
+    var dataSource = [ {
+        key : "001",
+        value : "商品详情",
+    }, {
+        key : "002",
+        value : "累计评价",
+
+    }, {
+        key : "003",
+        value : "售后服务",
+    } ];
+    new tab({
+        renderTo : "myTab",
+        dataSource : dataSource,
+        mapping : mappingnull,
+        onClick : function(li) {
+
+        }
+    });
+    new Rate({
+        renderTo : "rate",
+        dataSource : "/getRateByPage",
+        postData:{
+            goodsid:loc
+        },
+        dataSource1: "/getRateTotal",
+    });
+    $.post("/",function(res){
+        if(res=="undefined"){
+            $(".info_span").text("");
+        }else{
+            $(".info_span").text(res);
+            $(".info").remove();
+            $("	<a class='info' link href=#>我的订单</a>").appendTo($(".top_info"));
+            $("	<a class='info' link href=#>消息通知</a>").appendTo($(".top_info"));
+        }
+    });
+    $.post("/userId",function(res){
+        if(res=="undefined"){
+            $(".userId").text("");
+        }else{
+            $(".userId").text(res);
+        }
+    });
+    var userId=$(".userId").text();
+    if(userId==""){
+        userId=8;
+    }
+    $.post("/getShopCarTotal",{
+            userId:userId},
+        function(res){
+            $(".numResult").text(res.length);
+            // if(res==""){
+            //     $(".userId").text("");
+            // }else{
+            //     $(".userId").text(res);
+            // }
+        });
+</script>
+</html>

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我的购物车</title>
+    <link rel="stylesheet" href="stylesheets/buyShopResult.css" type="text/css"></link>
+    <link rel="stylesheet" href="stylesheets/common/DropDownList.css"
+          type="text/css"></link>
+    <link rel="stylesheet" href="stylesheets/common/font-awesome.css"
+          type="text/css"></link>
+
+    <script type="text/javascript" src="javascripts/common/jquery-1.12.0.js"></script>
+    <script type="text/javascript" src="javascripts/buyShopResult.js"></script>
+    <script type="text/javascript" src="javascripts/common/DropDownList.js"></script>
+    <script type="text/javascript" src="javascripts/common/util.js"></script>
+    <link rel="stylesheet" href="stylesheets/homePage.css">
+</head>
+<body>
+<div class="site-header">
+    <div class="containter">
+        <div class="header-logo">
+            <img src="images/JPG.jpg">
+        </div>
+
+        <div class="header-title">
+            <span class="userName" style="display:none"></span>
+            <h2>我的购物车</h2>
+            <p>温馨提示：产品是否购买成功，以最终下单为准哦，请尽快结算</p>
+        </div>
+    </div>
+</div>
+<div class="page-main">
+    <div id="container_box"
+         style="	width:1477px;;margin-right: auto;margin-left: auto;background-color: #fff;"></div>
+
+    <div class="cart-bar">
+        <div class="section-left">
+            <a href="jsp/homePage.jsp">继续购物</a>
+            <span class="cart-total">
+   已选择
+   <span class="chooseGoodsNum">0</span>
+   件
+  </span>
+        </div>
+        <div class="section-right">
+
+    <span class="total-price">
+    合计：<span class="total-price1">0</span>
+    元
+    </span>
+            <span id="btn-primary">去结算</span>
+            <div class="arrow-a"></div>
+            <span class="no-select-tip">请勾选需要结算的商品</span>
+        </div>
+    </div>
+
+
+</div>
+<div class="dialog">
+
+</div>
+<div class="info">
+    <span class='del1'><i class='fa fa-times' aria-hidden='true'></i></span>
+    <p>确定删除吗?</p>
+    <div class="cancel">取消</div>
+    <div class="correct">确认</div>
+</div>
+<div class="site_fotter" style="margin-left: 145px;">
+    <div class="fotter_service">
+        <ul class="list_service">
+            <li id="service1"><a> <i
+                    class="fa fa-volume-control-phone" aria-hidden="true"
+                    class="iconfont"></i> 预约维修服务 </a>
+            </li>
+            <li><a> <i class="fa fa-volume-control-phone"
+                       aria-hidden="true" class="iconfont"></i> 七天无理由退货 </a>
+            </li>
+            <li><a> <i class="fa fa-volume-control-phone"
+                       aria-hidden="true" class="iconfont"></i> 15天免费换货 </a>
+            </li>
+            <li><a> <i class="fa fa-gift" aria-hidden="true"
+                       class="iconfont"></i> 满150元包邮 </a>
+            </li>
+            <li><a> <i class="fa fa-map-marker" aria-hidden="true"></i>
+                520余家售后网点 </a>
+            </li>
+        </ul>
+    </div>
+    <div class="fotter_link">
+        <dl class="col_links">
+            <dt>帮助中心</dt>
+            <dd class="col_links_dd">
+                <a>账户管理</a>
+            </dd>
+            <dd class="col_links_dd">
+                <a>购物指南</a>
+            </dd>
+            <dd class="col_links_dd">
+                <a>订单操作</a>
+            </dd>
+        </dl>
+        <dl class="col_links">
+            <dt>服务支持</dt>
+            <dd class="col_links_dd">
+                <a>售后政策</a>
+            </dd>
+            <dd class="col_links_dd">
+                <a>自助服务</a>
+            </dd>
+            <dd class="col_links_dd">
+                <a>相关下载</a>
+            </dd>
+        </dl>
+        <dl class="col_links">
+            <dt>线下门店</dt>
+            <dd class="col_links_dd">
+                <a>账户管理</a>
+            </dd>
+            <dd class="col_links_dd">
+                <a>购物指南</a>
+            </dd>
+            <dd class="col_links_dd">
+                <a>订单操作</a>
+            </dd>
+        </dl>
+        <dl class="col_links">
+            <dt>关注我们</dt>
+            <dd class="col_links_dd">
+                <a>账户管理</a>
+            </dd>
+            <dd class="col_links_dd">
+                <a>购物指南</a>
+            </dd>
+            <dd class="col_links_dd">
+                <a>订单操作</a>
+            </dd>
+        </dl>
+        <dl class="col_links">
+            <dt>帮助中心</dt>
+            <dd class="col_links_dd">
+                <a>账户管理</a>
+            </dd>
+            <dd class="col_links_dd">
+                <a>购物指南</a>
+            </dd>
+            <dd class="col_links_dd">
+                <a>订单操作</a>
+            </dd>
+        </dl>
+        <dl class="col_links">
+            <dt>特色服务</dt>
+            <dd class="col_links_dd">
+                <a>账户管理</a>
+            </dd>
+            <dd class="col_links_dd">
+                <a>购物指南</a>
+            </dd>
+            <dd class="col_links_dd">
+                <a>订单操作</a>
+            </dd>
+        </dl>
+        <div class="col_contact">
+            <p class="phone">182-6759-9709</p>
+            <p class="contact_word">
+                周一至周日 8：10-10：00 <br> (仅收取市区费用)
+            </p>
+            <a class="message"> <i class="fa fa-wechat" aria-hidden="true"></i>
+                24小时在线服务 </a>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+<script>
+    window.onload = function() {
+        var url = window.location.search;
+        var loc = url.substring(url.indexOf('=') + 1, url.indexOf('&'));
+        var loc1 = url.substring(url.lastIndexOf('=') + 1, url.length);
+
+        var condition = "WHERE";
+        if (loc1 != 0) {
+            condition += " USERID=" + loc1;
+        } else {
+            condition += " USERID=8";
+        }
+
+        new buyShopResult(
+            {
+                renderTo : "container_box",
+                columns : [
+                    {
+                        name : "类别编号",
+                        alias : "ID",
+                        hide : true
+                    },
+
+                    {
+                        name : "图片",
+                        alias : "IMGURL",
+                        align : "center",
+                        // 格式化单元格输出的内容
+                        formatter : function(cell) {
+                            return "<img class='gridImg' src='upload/" + cell + "' style='width:50px;height:50px'>";
+                        }
+                    },
+
+                    {
+                        name : "名字",
+                        alias : "NAME",
+                        align : "center"
+
+                    }, {
+                        name : "单价（元）",
+                        alias : "PRICE",
+                        align : "center"
+
+                    }, {
+                        name : "数量",
+                        alias : "amount",
+                        align : "center"
+
+                    }, {
+                        name : "小计（元）",
+                        alias : "total",
+                        align : "center",
+                    },
+                    {
+                        name : "选择",
+                        alias : "choose",
+                        align : "center"
+
+                    },
+                    {
+                        name : "操作",
+                        alias : "do",
+                        align : "center"
+
+                    }
+
+                ],
+                dataSource : "/getShopByPage",
+                postData : {
+                    condition : condition
+                }, dataSource1 : "/getShopTotal",
+
+            });
+
+    }
+</script>
+</html>

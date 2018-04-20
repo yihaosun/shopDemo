@@ -1,0 +1,84 @@
+
+#login {
+	width: 25.375em;
+	margin: 0 60%;
+	position: relative;
+	top: 50%;
+	margin-top: -16.3em;
+}
+
+.goodsImg {
+	width: 6em;
+	height: 6em;
+	float:left;
+}
+label{
+	display:none;
+}
+#btnAdd {
+	width: 50px;
+	height: 50px;
+	/* margin-top: -71px; */
+	opacity: 0;
+	/* float: right; */
+	position: relative;
+	top: 70px;
+	left: 238px;
+}
+
+input[type='text'],input[type='password'] {
+	font-size: 1em;
+	width: 82%;
+	border: 0.125em solid #a9a8a8;
+	height: 2.3em;
+}
+
+#txtCodeLine {
+	width: 14.8em;
+	position: relative;
+	margin-left: 1.8%;
+}
+
+#pic {
+	position: absolute;
+	right: 17.2px;
+	top: 15.6em;
+}
+
+#btnLogin {
+	width: 93.3%;
+	height: 3em;
+}
+
+.errTips {
+	position: relative;
+	float: right;
+	color: red;
+	font-size: .9em;
+	margin: -2em 1em 0 0;
+	opacity: 0;
+	transition: all 250ms;
+
+}
+
+.showErrorTips {
+	opacity: 1;
+	margin: -2em 0em 0 0;
+}
+
+.row {
+	position: relative;
+}
+
+.placeholder {
+	position: absolute;
+	top: 0.8em;
+	left: 2.9em;
+	color: gray;
+	display: none; /*所有的浏览器隐藏*/
+	padding: .8em 0 0 1em;
+}
+
+.txtError {
+	border: .125em solid red !important;
+}

@@ -1,0 +1,65 @@
+.menu {
+	position: relative;
+	color: white;;
+	top: 28px;
+}
+
+.menuList {
+	transition: all 250ms;
+	user-select: none;
+	padding: 0;
+}
+
+.menuItem {
+	padding: .5em 1em .5em 3em;
+	position: relative;
+	cursor: pointer;
+	transition: all 250ms;
+	z-index: 5;
+}
+
+.menuItem:hover {
+	text-decoration: underline;
+}
+
+.menuSelected {
+	color: white;
+	text-decoration: none !important;
+}
+
+.menuHoverBG {
+	background-color: #4a484d;
+	height: 2.3125em;
+	transition: all 250ms;
+	position: absolute;
+	width: 100%;
+	top: 0em;
+	z-index: 1;
+}
+
+.menuSelectedBG {
+	background-color: #d95a61 !important;
+	width: 100%;
+	position: absolute;
+	z-index: 2;
+	transition: all 250ms;
+	height: 2.3125em;
+}
+
+.word {
+	display: inline-block;
+	color: #ae505c;
+	font-size: 22px;
+	margin-left: 14px;
+	position: relative;
+	top: -7px;
+}
+
+.welcome {
+	display: inline-block;
+	color: white;
+	position: relative;
+	top: -26px;
+	left: 117px;
+	font-size: 14px;
+}

@@ -1,0 +1,74 @@
+* {
+	font-family: "Microsoft YaHei";
+	box-sizing: border-box;
+}
+
+html,body {
+	height: 100%;
+}
+
+body {
+	margin: 0;
+}
+
+.hidden {
+	display: none !important;
+}
+
+/*文本框、按钮、下拉列表等*/
+input[type='text'],input[type='password'],#btnLogin,select,textarea {
+	color: #3a3a3a;
+	outline: none;
+	padding: .35em .7em;
+	border: .125em solid #d0d0d0;
+}
+
+/*鼠标悬停在文本框、按钮、下拉列表等*/
+input[type='text']:hover,input[type='password']:hover,input[type="button"]:hover,select:hover,textarea:hover {
+	border: .125em solid #828181;
+}
+
+/*文本框、下拉列表获得焦点*/
+input[type='text']:focus,input[type='password']:focus,select:focus,textarea:focus {
+	border: .125em solid #0078d7;
+}
+
+/*文本框内出错*/
+.txtError {
+	border: .125em solid red!important;
+}
+
+/*按钮通用*/
+#btnLogin {
+	color: white;
+	cursor: pointer;
+	font-size: 1em;
+	padding: .3em 1.3em;
+	background-color: #2196F3;
+	border: .125em solid #2196F3;
+	margin-top: 4px;
+	text-align:center;
+	line-height: 1.5em;
+}
+
+/*按钮通用悬停*/
+#btnLogin:hover {
+	border: .125em solid #0079d8;
+}
+
+/*按钮按下*/
+#btnLogin:active {
+	border: .125em solid #0079d8;
+	background-color: #0268b9;
+}
+
+/*按钮禁用*/
+.btnDisable {
+	border: .125em solid #a7a7a7 !important;
+	background-color: #cacaca !important;
+}
+
+/*阻止拖动修改大小*/
+textarea {
+	resize: none;
+}

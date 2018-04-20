@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册页面</title>
+    <link rel="stylesheet" href="stylesheets/common/common1.css">
+    <link rel="stylesheet" href="stylesheets/register.css">
+    <script src="javascripts/common/jquery-1.12.0.js"></script>
+    <script src="javascripts/common/util.js"></script>
+    <script src="javascripts/register.js"></script>
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        body {
+            background-color: #fcf8f9;
+        }
+
+        .content {
+            width: 33em;
+            height: 43.5em;
+            margin: 4.1em auto;
+            background-color: white;
+        }
+
+        .header {
+            width: 6em;
+            height: 4.6em;
+            margin: 0 auto;
+        }
+
+        .word {
+            font-size: 1.8em;
+            text-align: center;
+            line-height: 72px
+        }
+
+        #txtName {
+            height: 2.4em;
+        }
+
+        .showErrorTips {
+            width: 10em;
+            position: relative;
+            left: 9.9em;
+        }
+
+        .words {
+            font-size: 0.9em;
+            display: inline-block;
+            margin-left: 3.348em;
+        }
+
+        #bottom2 {
+            margin-left: 40em;
+            margin-top: 4.375em;
+        }
+
+        #bottom2 {
+            height: 5.2em;
+            margin: 0 auto;
+            margin-top: 8.5em;
+            position: relative;
+        }
+
+        #wrap_span1 {
+            font-size: 0.8em;
+            margin-left: 19.9em;
+            color: gray;
+            clear: both;
+            margin: 0 auto;
+            width: 401px;
+        }
+
+        #wrap_span1:after {
+            clear: both;
+            content: '';
+            display: block;
+            width: 0;
+            height: 0;
+            visibility: hidden;
+        }
+
+        #wrap_span1>span {
+            display: block;
+            float: left;
+            width: 100px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            cursor: pointer;
+            font-family: "微软雅黑";
+        }
+        .headerPic {
+            width: 6em;
+            height: 6em;
+            border: 1px solid black;
+            margin: 0 auto;
+            text-align: center;
+            line-height: 6em;
+            border-radius: 50%;
+            overflow:hidden;
+            margin-top: -46px;
+        }
+        #btnRegister {
+            padding-left: 0em !important;
+        }
+        #leader {
+            text-align: center;
+            margin: 0 auto;
+            font-size: 12px;
+            color: #757575;
+        }
+    </style>
+</head>
+<body>
+<!--邮箱：<input type="text" id="email">-->
+<!--昵称：<input type="text" id="nickName">-->
+<!--密码：<input type="password" id="pwd">-->
+<!--真实姓名：<input type="text" id="realName">-->
+<!--<input type="button" id="submit" value="确定">-->
+
+<div class="content">
+    <div class="header">
+        <img src="images/JPG.jpg">
+    </div>
+    <div class="word">注册一号账号</div>
+    <button type="button" id="btnAdd"></button>
+    <div class="headerPic">
+        这里是头像
+        <form action="/uploader" method="post" enctype="multipart/form-data">
+            <!--注意此处的name和后端files的属性对应-->
+            <input type="file" name="fulAvatar">
+            <input type="submit">
+        </form>
+    </div>
+    <div class="row">
+        <label for="txtName" >邮箱</label>
+        <input type="text" id="txtName" placeholder="请输入邮箱"
+               maxlength="20" autocomplete="off" validate="q"  />
+        <div class="errTips"></div>
+        <div class="placeholder" id="placeholder1">请输入邮箱</div>
+    </div>
+    <div class="row">
+        <label for="txtName" >昵称</label>
+        <input type="text" id="nickName" placeholder="昵称"
+               maxlength="20" autocomplete="off" minlen="1" validate="cenm_" />
+        <div class="errTips"></div>
+        <div class="placeholder" id="nick">请输入邮箱</div>
+    </div>
+    <div class="row">
+        <label for="txtName" >密码</label>
+        <input type="password" id="txtPassword"
+               placeholder="请输入密码" maxlength="20"
+               autocomplete="off" validate="enm_" />
+        <div class="errTips"></div>
+        <div class="placeholder" id="placeholder2">请输入密码</div>
+    </div>
+    <div class="row">
+        <label for="txtName" >重复密码</label>
+        <input type="password" id="txtPasswordAgin"
+               placeholder="请重复输入密码" maxlength="20"
+               autocomplete="off" validate="enm_" />
+        <div class="errTips" id="errTips2"></div>
+        <div class="placeholder" id="placeholder3">请重复输入密码</div>
+    </div>
+    <div class="row">
+        <label for="txtName" >真实姓名</label>
+        <input type="text" id="name" placeholder="请输入真实姓名"
+               maxlength="20" autocomplete="off" minlen="2" validate="c"/>
+        <div class="errTips" id="errTips3"></div>
+        <div class="placeholder" id="placeholder4">请输入真实姓名</div>
+    </div>
+    <div class="row">
+        <label for="txtName" >爱好</label>
+        <input type="text" id="hobby" placeholder="请输入爱好"
+               maxlength="20" autocomplete="off" minlen="4" validate="c"/>
+        <div class="errTips" id="errTips4"></div>
+        <div class="placeholder" id="placeholder5">请输入爱好</div>
+    </div>
+    <div id="btnRegister" />
+    立即注册
+</div>
+<div class="words">注册帐号即表示您同意并愿意遵守一号 用户协议和 隐私政策</div>
+</div>
+</div>
+<div id="bottom2">
+    <div id="wrap_span1">
+        <span>简体</span><span>繁体</span> <span>English</span> <span>常见问题</span>
+    </div>
+    <div id="leader">一号公司版权所有-京ICP备10046444-京公网安备11010802020134号-京ICP证110507号</div>
+</div>
+</body>
+<script>
+//    $(function() {// 初始化内容
+//   $("#submit").click(function(){
+//       var email=$("#email").val();
+//       var nickName=$("#nickName").val();
+//       var pwd=$("#pwd").val();
+//       var realName=$("#realName").val();
+//       $.post("/register", { //jq的post方法
+//           email: email,
+//           nickName: nickName,
+//           pwd:pwd,
+//           realName:realName
+//       }, function(res) {
+//           alert(res);
+//       })
+//   });
+//    });
+</script>
+</html>

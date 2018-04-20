@@ -1,0 +1,77 @@
+* {
+	font-family: "Microsoft YaHei";
+	box-sizing: border-box;
+}
+
+html,body {
+	height: 100%;
+}
+
+body {
+	margin: 0;
+}
+
+.hidden {
+	display: none !important;
+}
+
+/*文本框、按钮、下拉列表等*/
+input[type='text'],input[type='password'],#btnRegister,select,textarea {
+	    font-size: 1em;
+    width: 82%;
+    padding: .35em .7em;
+    /* border: 0.025em solid #828181; */
+    height: 2.4em;
+    margin-top: 18px;
+    margin-left: 3.04em;
+}
+
+/*鼠标悬停在文本框、按钮、下拉列表等*/
+input[type='text']:hover,input[type='password']:hover,select:hover,textarea:hover
+	{
+	border: .125em solid #828181;
+}
+
+/*文本框、下拉列表获得焦点*/
+input[type='text']:focus,input[type='password']:focus,textarea:focus {
+	border: .125em solid #0078d7;
+}
+
+/*文本框内出错*/
+.txtError {
+	border: .125em solid red !important
+		/*border: 0.025em solid red !important;*/
+}
+
+/*按钮通用*/
+#btnRegister {
+	color: white;
+	cursor: pointer;
+	font-size: 1em;
+	background-color: #2196F3;
+	border: .125em solid #2196F3;
+	outline: none;
+	text-align: center;
+	line-height: 23px;
+}
+
+/*按钮通用悬停*/
+#btnRegister:hover {
+	border: .125em solid #0079d8;
+}
+
+/*按钮按下*/
+#btnRegister:active {
+	background-color: #2196F3;
+}
+
+/*按钮禁用*/
+.btnDisable {
+	background-color: #2196F3 !important;
+	border: 0.125em solid #cacaca !important;
+}
+
+/*阻止拖动修改大小*/
+textarea {
+	resize: none;
+}

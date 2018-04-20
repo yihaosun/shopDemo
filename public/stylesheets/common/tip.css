@@ -1,0 +1,38 @@
+@CHARSET "UTF-8";
+
+.wrap_i {
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	border: 1px solid #27680a;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 30px;
+	background-color: #5ac827;
+}
+
+.wrap_i i {
+	color: white;
+}
+
+.tip {
+	position: absolute;
+	top: 29px;
+	left: 50%;
+	font-size: 18px;
+	width: 155px;
+	height: 32px;
+	border: 1px solid #68d768;
+	line-height: 32px;
+	text-align: center;
+	background-color: #eaffea;
+}
+
+.tip_word {
+	font-size: 16px;
+	display: inline-block;
+	margin-left: 10px;
+}
+hidden{
+	display:none;
+}

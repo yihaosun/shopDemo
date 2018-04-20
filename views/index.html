@@ -1,0 +1,693 @@
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>一号商城</title>
+    <link rel="stylesheet" href="stylesheets/common/font-awesome.css"
+          type="text/css"></link>
+    <link rel="stylesheet" href="stylesheets/homePage.css">
+    <link rel="stylesheet" href="stylesheets/common/DropDownList.css"
+          type="text/css"></link>
+    <script type="text/javascript" src="javascripts/common/jquery-1.12.0.js"></script>
+    <script type="text/javascript" src="javascripts/goodsPhone.js"></script>
+    <script type="text/javascript" src="javascripts/homePage.js"></script>
+    <script type="text/javascript" src="javascripts/common/DropDownList.js"></script>
+    <script type="text/javascript" src="javascripts/common/util.js"></script>
+    <script type="text/javascript" src="javascripts/shopBuy.js"></script>
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .content {
+            width: 100%;
+            float: left;
+            margin-left: 50%;
+        }
+        .listLi {
+            width: 234px;
+            height: 340px;
+            border: 1px solid #f9f9f9;
+            float: left;
+            list-style: none;
+            margin-left: 11.4px;
+            cursor: pointer;
+            margin-top: 32px;
+            background: #fafafa;
+        }
+        #box {
+            float: left;
+        }
+
+        .listUl {
+            float: left;
+            margin-left: -11px;
+            margin-top: -31px;
+        }
+
+        .span_price {
+            display: block;
+            cursor: pointer;
+            font-size: 14px;
+            text-align: center;
+            margin-top: 0.6em;
+            color: orange;
+            font-size: 1em;
+            line-height: 1.8em;
+        }
+
+        .span_title {
+            display: block;
+            cursor: pointer;
+
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .img_wrap {
+            width: 13.7em;
+            height: 13.8em;
+            margin-left: 0.4em;
+            margin-top: 0.2em;;
+        }
+
+        .span_shopName {
+            display: block;
+            cursor: pointer;
+            font-size: 14px;
+            text-align: center;
+            font-size: 0.7em;
+            color: gray;
+            text-decoration: underline;
+            margin-top: 10px;
+        }
+        .span_stock {
+            display: inline-block;
+            width: 7.2em;
+            border: 1px solid #f9f9f9;
+            margin-left: 0.1em;
+            font-size: 0.9em;
+            margin-top: 0.8em;
+            color: gray;
+        }
+        .span_stock span {
+            color: #c58104;
+        }
+        .span_suggest {
+            width: 6.6em;
+            border: 1px solid #f9f9f9;
+            margin-top: 0.9em;
+            display: inline-block;
+            font-size: 0.9em;
+            border-left: none;
+        }
+
+        .span_suggest span {
+            color: blue;
+        }
+        img {
+            width: 100%;
+            height: 100%;
+        }
+        .span_pt {
+            display: inline-block;
+            width: 3.4em;
+            height: 1.3em;
+            position: relative;
+            top: -1.9em;
+            left: 11.1em;
+        }
+        .span_pt img {
+            display: inline-block;
+            width: 3.1em;
+            height: 2.3em;
+        }
+
+        .new {
+            position: relative;
+            top: -7.5em;
+            left: 8.8em;
+        }
+
+        .pager {
+            float: left;
+            margin-top: 3em;
+            width: 100%;
+            height: 2.1em;
+            background-color: #e7e7e7;
+        }
+
+        .oul {
+            margin-left: 10%;
+        }
+
+        .lastLi2,.lastLi1,.backLi,.nowPage,.allPage,.lastLi {
+            float: left;
+            width: 1.2em;
+            height: 2em;
+            list-style: none;
+            text-align: center;
+            line-height: 2em;
+            position: relative;
+            left: 336px;
+            cursor: pointer;
+            color: #8ab08a;
+            left: 325px;
+        }
+        .lastLi2 input {
+            width: 1.8em;
+        }
+        .allPage {
+            margin-left: 0em;
+        }
+        .nowPage {
+            margin-left: 29em;
+        }
+        .backLi {
+            position: relative;
+            left: 48.6em;
+            width: 3em;
+        }
+        .lastLi{
+            width: 3em;
+            left: 21em;
+        }
+        .ddlPageSize {
+            width: 5.4em;
+            height: 1.8em;
+            position: relative;
+            top: -2em;
+            left: 8em;
+        }
+        .ddlTxt {
+            padding: 0em 2em .3em 1em;
+        }
+        .cart_menu {
+            display: none;
+            position: absolute;
+            right: 0;
+            right: -1px \9;
+            top: 40px;
+            z-index: 31;
+            width: 280px;
+            padding: 15px 0 0;
+            color: #424242;
+            background: #fff;
+            border: 1px solid #e0e0e0 \9;
+            border-top: 0 \9;
+              -webkit-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .loading {
+            margin: 5px 20px 30px;
+            text-align: center;
+        }
+        .top_img{
+            position: relative;
+            z-index: 7691;
+            clear: both;
+            width: 100%;
+            font-size: 0;
+            min-width: 990px;
+        }
+        .text_i{
+            position: absolute;
+            top: 4px;
+            right: 8px;
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+            z-index: 2;
+            font: 16px/16px simsun;
+            text-align: center;
+            background-color:gray;
+            opacity: .5;
+        }
+    </style>
+</head>
+
+<body>
+<div class="top_img"><img src="images/title_show.png" style="height: 120px;"><i class="text_i">×</i></div>
+<div class="top_bar">
+    <div class="container">
+        <div class="topbar_nav">
+            <a>一号商城</a> <span class="sep">|</span> <a>YIHAO</a> <span
+                class="sep">|</span> <a>聊天</a> <span class="sep">|</span> <a>游戏</a>
+            <span class="sep">|</span> <a>多看阅读</a> <span class="sep">|</span> <a>云服务</a>
+            <span class="sep">|</span> <a>金融</a> <span class="sep">|</span> <a>金币</a>
+            <span class="sep">|</span> <a>商城手机版</a> <span class="sep">|</span> <a>问题反馈</a>
+            <span class="sep">|</span> <a>联系</a> <span class="sep">|</span>
+        </div>
+        <div class="top_cart">
+            <a  class="cart_mini"><i class="fa fa-shopping-cart" aria-hidden="true"></i>     购物车(<span class="numResult">0</span>)</a>
+            <div class="cart_menu">
+                <div class="loading"></div>
+            </div>
+        </div>
+        <div class="top_info">
+            <span class="userId"></span>
+            <span class="info_span"  href="#"></span>
+            <a class="info" link href="/login">登录</a> <a class="info" link
+                                                                href="/register">注册</a> <a class="info">消息通知</a>
+        </div>
+    </div>
+</div>
+<div class="header">
+    <div class="container">
+        <div class="logo">
+            <img src="images/JPG.jpg">
+        </div>
+        <div class="header_nav">
+            <ul class="ouls">
+                <li><a class="link"><span class="text">首页</span><span
+                        class="arrow"></span> </a></li>
+                <li><a class="link"><span class="text">限时购</span><span
+                        class="arrow"></span> </a></li>
+                <li><a class="link"><span class="text">每日上线</span><span
+                        class="arrow"></span> </a></li>
+                <li><a class="link"><span class="text">国家馆</span><span
+                        class="arrow"></span> </a></li>
+                <li><a class="link"><span class="text">全球旗舰</span><span
+                        class="arrow"></span> </a></li>
+                <li><a class="link"><span class="text">工厂店</span><span
+                        class="arrow"></span> </a></li>
+                <li><a class="link"><span class="text">奶粉</span><span
+                        class="arrow"></span> </a></li>
+                <li><a class="link"><span class="text">面膜</span><span
+                        class="arrow"></span> </a></li>
+                <li><a class="link"><span class="text">充值</span><span
+                        class="arrow"></span> </a></li>
+
+            </ul>
+        </div>
+        <div class="header_search">
+            <input type="text" class="header_search_text">
+            <span class="header_search_bar"><i class="fa fa-search" aria-hidden="true"></i></span>
+        </div>
+    </div>
+</div>
+<div class="view_content_wrap">
+    <div class="site_categroy">
+        <ul style="margin-top: -42px;background-color:#F90" >
+            <li class="site_categroy_item">
+                <a class="site_categroy_item_a">
+                    所有分类
+                </a>
+            </li>
+        </ul>
+        <ul class="site_categroy_list">
+            <li class="site_categroy_item">
+                <a class="site_categroy_item_a">
+                    生鲜 海鲜
+                    <i class="fa fa-angle-right" aria-hidden="true" ></i>
+                </a>
+            </li>
+            <li class="site_categroy_item">
+                <a class="site_categroy_item_a">
+                    笔记本
+                    <i class="fa fa-angle-right" aria-hidden="true" ></i>
+                </a>
+            </li>
+            <li class="site_categroy_item">
+                <a class="site_categroy_item_a">
+                    电视 盒子
+                    <i class="fa fa-angle-right" aria-hidden="true" ></i>
+                </a>
+            </li>
+            <li class="site_categroy_item">
+                <a class="site_categroy_item_a">
+                    路由器 智能硬件
+                    <i class="fa fa-angle-right" aria-hidden="true" ></i>
+                </a>
+            </li>
+            <li class="site_categroy_item">
+                <a class="site_categroy_item_a">
+                    移动电源 电池 插线板
+                    <i class="fa fa-angle-right" aria-hidden="true" ></i>
+                </a>
+            </li>
+            <li class="site_categroy_item">
+                <a class="site_categroy_item_a">
+                    耳机 音箱
+                    <i class="fa fa-angle-right" aria-hidden="true" ></i>
+                </a>
+            </li>
+            <li class="site_categroy_item">
+                <a class="site_categroy_item_a">
+                    保护套 贴膜
+                    <i class="fa fa-angle-right" aria-hidden="true" ></i>
+                </a>
+            </li>
+            <li class="site_categroy_item">
+                <a class="site_categroy_item_a">
+                    线材 支架 存储卡
+                    <i class="fa fa-angle-right" aria-hidden="true" ></i>
+                </a>
+            </li>
+            <li class="site_categroy_item">
+                <a class="site_categroy_item_a">
+                    箱包 服饰 鞋 眼镜
+                    <i class="fa fa-angle-right" aria-hidden="true" ></i>
+                </a>
+            </li>
+            <li class="site_categroy_item">
+                <a class="site_categroy_item_a">
+                    周边生活
+                    <i class="fa fa-angle-right" aria-hidden="true" ></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="view_content">
+        <ul class="list">
+            <li><img src="images/1.jpg" style="width:100%; height:100%">
+            </li>
+            <li><img src="images/2.jpg" style="width:100%; height:100%">
+            </li>
+            <li><img src="images/3.jpg" style="width:100%; height:100%">
+            </li>
+            <li><img src="images/4.jpg" style="width:100%; height:100%">
+            </li>
+            <li><img src="images/5.jpg" style="width:100%; height:100%">
+            </li>
+        </ul>
+        <span class="left"><i class="fa fa-angle-left"
+                              aria-hidden="true"></i> </span> <span class="right"><i
+            class="fa fa-angle-right" aria-hidden="true"></i> </span>
+        <div class="bottom">
+            <span class="bottom_span"></span> <span class="bottom_span"></span> <span
+                class="bottom_span"></span> <span class="bottom_span"></span> <span
+                class="bottom_span"></span>
+        </div>
+    </div>
+</div>
+<div class="wrap">
+    <div class="span4">
+        <ul class="span4_ul">
+            <li class="span4_ul_li"><a class="span4_ul_li_a" style="border-top:1px solid gray"> <i
+                    class="fa fa-mobile" aria-hidden="true"></i> 话费 </a>
+            </li>
+            <li class="span4_ul_li"><a class="span4_ul_li_a"style="border-top:1px solid gray"> <i
+                    class="fa fa-mobile" aria-hidden="true"></i> 水电煤 </a>
+            </li>
+            <li class="span4_ul_li"><a class="span4_ul_li_a" style="border-top:1px solid gray;border-right: 1px solid gray"> <i
+                    class="fa fa-mobile" aria-hidden="true"></i> 理财 </a>
+            </li>
+            <li class="span4_ul_li"><a class="span4_ul_li_a"> <i
+                    class="fa fa-mobile" aria-hidden="true"></i> 分期 </a>
+            </li>
+            <li class="span4_ul_li"><a class="span4_ul_li_a"> <i
+                    class="fa fa-mobile" aria-hidden="true"></i> 会员卡 </a>
+            </li>
+            <li class="span4_ul_li"><a class="span4_ul_li_a"style="border-right: 1px solid gray"> <i
+                    class="fa fa-mobile" aria-hidden="true"></i> 足球 </a>
+            </li>
+        </ul>
+    </div>
+    <ul class="show_img">
+        <li class="img_first"><img src="images/bottomImg.jpg"
+                                   style="width:100%; height:100%"></li>
+        <li class="img_first"><img src="images/bottomImage1.jpg"
+                                   style="width:100%; height:100%"></li>
+        <li class="img_first"><img src="images/bottomImage2.jpg"
+                                   style="width:100%; height:100%"></li>
+    </ul>
+</div>
+<div class="box_hd">
+    <h2 class="box_hd_title">中外名酒</h2>
+</div>
+<div class="box_hd_content">
+    <div id="box"></div>
+    <div class="box_hd1">
+        <h2 class="box_hd_title">生鲜水果</h2>
+    </div>
+    <div id="box1"></div>
+    <div class="box_hd1">
+        <h2 class="box_hd_title">笔记本单品</h2>
+    </div>
+    <div id="box2"></div>
+    <div class="site_fotter">
+        <div class="fotter_service">
+            <ul class="list_service">
+                <li id="service1"><a> <i
+                        class="fa fa-volume-control-phone" aria-hidden="true"
+                        class="iconfont"></i> 预约维修服务 </a>
+                </li>
+                <li><a> <i class="fa fa-volume-control-phone"
+                           aria-hidden="true" class="iconfont"></i> 七天无理由退货 </a>
+                </li>
+                <li><a> <i class="fa fa-volume-control-phone"
+                           aria-hidden="true" class="iconfont"></i> 15天免费换货 </a>
+                </li>
+                <li><a> <i class="fa fa-gift" aria-hidden="true"
+                           class="iconfont"></i> 满150元包邮 </a>
+                </li>
+                <li><a> <i class="fa fa-map-marker" aria-hidden="true"></i>
+                    520余家售后网点 </a>
+                </li>
+            </ul>
+        </div>
+        <div class="fotter_link">
+            <dl class="col_links">
+                <dt>帮助中心</dt>
+                <dd class="col_links_dd">
+                    <a>账户管理</a>
+                </dd>
+                <dd class="col_links_dd">
+                    <a>购物指南</a>
+                </dd>
+                <dd class="col_links_dd">
+                    <a>订单操作</a>
+                </dd>
+            </dl>
+            <dl class="col_links">
+                <dt>服务支持</dt>
+                <dd class="col_links_dd">
+                    <a>售后政策</a>
+                </dd>
+                <dd class="col_links_dd">
+                    <a>自助服务</a>
+                </dd>
+                <dd class="col_links_dd">
+                    <a>相关下载</a>
+                </dd>
+            </dl>
+            <dl class="col_links">
+                <dt>线下门店</dt>
+                <dd class="col_links_dd">
+                    <a>账户管理</a>
+                </dd>
+                <dd class="col_links_dd">
+                    <a>购物指南</a>
+                </dd>
+                <dd class="col_links_dd">
+                    <a>订单操作</a>
+                </dd>
+            </dl>
+            <dl class="col_links">
+                <dt>关注我们</dt>
+                <dd class="col_links_dd">
+                    <a>账户管理</a>
+                </dd>
+                <dd class="col_links_dd">
+                    <a>购物指南</a>
+                </dd>
+                <dd class="col_links_dd">
+                    <a>订单操作</a>
+                </dd>
+            </dl>
+            <dl class="col_links">
+                <dt>帮助中心</dt>
+                <dd class="col_links_dd">
+                    <a>账户管理</a>
+                </dd>
+                <dd class="col_links_dd">
+                    <a>购物指南</a>
+                </dd>
+                <dd class="col_links_dd">
+                    <a>订单操作</a>
+                </dd>
+            </dl>
+            <dl class="col_links">
+                <dt>特色服务</dt>
+                <dd class="col_links_dd">
+                    <a>账户管理</a>
+                </dd>
+                <dd class="col_links_dd">
+                    <a>购物指南</a>
+                </dd>
+                <dd class="col_links_dd">
+                    <a>订单操作</a>
+                </dd>
+            </dl>
+            <div class="col_contact">
+                <p class="phone">182-6759-9709</p>
+                <p class="contact_word">
+                    周一至周日 8：10-10：00 <br> (仅收取市区费用)
+                </p>
+                <a class="message"> <i class="fa fa-wechat" aria-hidden="true"></i>
+                    24小时在线服务 </a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="item_childern">
+    <div class="containter1">
+        <ul class="children_list">
+            <li>
+                <div class="new">新品</div>
+                <div>
+                    <img src="images/phone.png" style="width: 160px;height: 119px;">
+                    <p class="price">小米MX2</p>
+                </div>
+                <p class="price1">3299元起</p>
+                <div></div></li>
+            <li>
+                <div class="new">新品</div>
+                <div>
+                    <img src="images/phone.png" style="width: 160px;height: 119px;">
+                    <p class="price">小米MX2</p>
+                </div>
+                <p class="price1">3299元起</p>
+                <div></div></li>
+
+            <li>
+                <div class="new">新品</div>
+                <div>
+                    <img src="images/phone.png" style="width: 160px;height: 119px;">
+                    <p class="price">小米MX2</p>
+                </div>
+                <p class="price1">3299元起</p>
+                <div></div></li>
+
+            <li>
+                <div class="new">新品</div>
+                <div>
+                    <img src="images/phone.png" style="width: 160px;height: 119px;">
+                    <p class="price">小米MX2</p>
+                </div>
+                <p class="price1">3299元起</p>
+                <div></div></li>
+        </ul>
+    </div>
+</body>
+<script>
+    window.onload=function(){
+        var userId=$(".userId").text();
+//        var condition1="WHERE";
+//        if(userId!=""){
+//            condition1+=" S.USERID="+userId;
+//        }else{
+//            condition1+=" S.USERID IS NULL";
+//        }
+//        $.post("getTotal.action",{
+//            condition1:condition1
+//        },function(json){
+//            $(".numResult").text(json.total);
+//        });
+//        $(".cart_mini").click(function(){
+//            location.href="jsp/buyShopResult.jsp?userId="+userId
+//        });
+        var txtGoodsName="生鲜";
+        var condition="WHERE T1.GOODSTYPENAME LIKE'%生鲜'";
+        var txtGoodsName1="名酒";
+        var condition1="WHERE T1.GOODSTYPENAME LIKE'%名酒'";
+        var txtGoodsName2="笔记本";
+        var condition2="WHERE T1.GOODSTYPENAME LIKE'%"+txtGoodsName2+"%'";
+       new goodsPhone({
+            renderTo : "box",
+            dataSource : "/getGoodsByCategory",
+            columns : [{
+                name : "名字",
+                alias : "name"
+            },{
+                name : "价格",
+                alias : "price"
+            },{
+                name : "库存",
+                alias : "stock"
+            },{
+                name : "图片",
+                alias : "imgUrl"
+            },
+                {
+                    name : "介绍",
+                    alias : "shopName"
+                },{
+                    name:"编号",
+                    alias:"id"
+                }
+            ],postData:{
+               condition:condition1
+           },
+            onClick:function(li){
+                location.href="/Tab?id="+ $(li).attr("id")+"&&userId="+userId+"";
+                //
+            },
+        });
+        new goodsPhone({
+            renderTo : "box1",
+            dataSource : "/getGoodsByCategory",
+            columns : [{
+                name : "名字",
+                alias : "name"
+            },{
+                name : "价格",
+                alias : "price"
+            },{
+                name : "库存",
+                alias : "stock"
+            },{
+                name : "图片",
+                alias : "imgUrl"
+            },
+                {
+                    name : "介绍",
+                    alias : "shopName"
+                },{
+                    name:"编号",
+                    alias:"id"
+                }
+            ],
+            postData:{
+                condition:condition
+            },
+            onClick:function(li){
+                location.href="/Tab?id="+ $(li).attr("id")+"&&userId="+userId+"";
+            },
+        });
+//        new goodsPhone({
+//            renderTo : "box2",
+//            dataSource : "getGoodsByPage.action",
+//            columns : [{
+//                name : "名字",
+//                alias : "name"
+//            },{
+//                name : "价格",
+//                alias : "price"
+//            },{
+//                name : "库存",
+//                alias : "stock"
+//            },{
+//                name : "图片",
+//                alias : "imgUrl"
+//            },
+//                {
+//                    name : "介绍",
+//                    alias : "shopName"
+//                },{
+//                    name:"编号",
+//                    alias:"id"
+//                }
+//            ],
+//            postData:{
+//                condition:condition2
+//            },
+//            onClick:function(li){
+//                location.href="jsp/Tab.jsp?id="+ $(li).attr("id")+"&&userId="+userId+"";
+//            },
+//        });
+    }
+</script>
+</html>
